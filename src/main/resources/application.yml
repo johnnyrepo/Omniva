@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /@project.artifactId@
+spring:
+  application:
+    name: '@project.name@'    
+  data:
+    mongodb:
+      host: ds135817.mlab.com
+      port: 35817
+      database: omniva-test
+      username: master
+      password: master
+  datasource:
+    name: dataSource
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+    url: jdbc:h2:mem:OmnivaDB;MODE=Oracle
+    schema: classpath:schema.sql
+  h2:
+    console:
+      enabled: true
+      path: /h2console
+      
