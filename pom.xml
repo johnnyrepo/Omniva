@@ -10,7 +10,7 @@
 	<packaging>jar</packaging>
 
 	<name>Omniva</name>
-	<description>Omniva demo project - REST service with MongoDB</description>
+	<description>Omniva demo project - REST service with H2 database</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -26,10 +26,6 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>

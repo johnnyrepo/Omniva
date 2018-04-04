@@ -14,18 +14,21 @@ import org.springframework.test.context.junit4.SpringRunner;
 import ee.omniva.domain.Invoice;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest//(classes = {OmnivaApplication.class})
+@SpringBootTest
 public class InvoiceRepositoryIntegrationTest {
-	
+
 	@Autowired
 	InvoiceRepository repository;
-	
+
 	@Test
 	public void testFindById() {
-		Optional<Invoice> result = repository.findById("123");
-		
+		Optional<Invoice> result = repository.findById("1234567890qwerty");
+
 		assertTrue(result.isPresent());
-		assertEquals("123", result.get().getId());
+		assertEquals("1234567890qwerty", result.get().getId());
+		assertEquals("name1", result.get().getName());
+		assertEquals("desc1", result.get().getDescription());
+		assertEquals(true, result.get().isPaid());
 	}
 
 }

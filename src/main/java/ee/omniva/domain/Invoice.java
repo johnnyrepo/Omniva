@@ -1,30 +1,25 @@
 package ee.omniva.domain;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-
-
-//@Document(collection = Invoice.COLLECTION_NAME)
 @Entity
 @Table(name="INVOICES")
 public class Invoice {
 	
-	//public static final String COLLECTION_NAME = "invoices";
-
 	@Id
-	//@GeneratedValue(generator="system-uuid")
-	//@GenericGenerator(name="system-uuid", strategy = "uuid")
+	@Column(name="ID")
 	private String id;
 
+	@Column(name="NAME")
 	private String name;
 
+	@Column(name="DESCRIPTION")
 	private String description;
 
+	@Column(name="PAID")
 	private boolean paid;
 
 	public String getId() {

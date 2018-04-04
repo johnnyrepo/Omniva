@@ -38,6 +38,7 @@ public class InvoiceRestControllerIntegrationTest {
 		invoiceRepository.save(createInvoice("12345abcde", "name1", "desc1", true));
 		invoiceRepository.save(createInvoice("67890fgij", "name2", "desc2", false));
 		invoiceRepository.save(createInvoice("abcde12345", "name3", "desc3", false));
+		// +1 invoice in import.sql
 		
 		mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
 	}
@@ -80,7 +81,7 @@ public class InvoiceRestControllerIntegrationTest {
 	public void testGetAllInvoices() throws Exception {
 		mockMvc.perform(get("/invoices"))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$", Matchers.hasSize(3)));
+			.andExpect(jsonPath("$", Matchers.hasSize(4)));
 	}
 
 }

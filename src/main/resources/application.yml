@@ -5,13 +5,6 @@ server:
 spring:
   application:
     name: '@project.name@'    
-  data:
-    mongodb:
-      host: ds135817.mlab.com
-      port: 35817
-      database: omniva-test
-      username: master
-      password: master
   datasource:
     name: dataSource
     driver-class-name: org.h2.Driver
