@@ -1,4 +1,4 @@
-# Omniva Invoices tes app
+# Omniva Invoices test app
 Application is created using Eclipse STS and project can be simply imported into any Eclipse STS workspace
 
 # Build and Run
