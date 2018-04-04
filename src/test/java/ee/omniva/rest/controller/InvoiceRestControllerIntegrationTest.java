@@ -35,9 +35,9 @@ public class InvoiceRestControllerIntegrationTest {
 
 	@Before
 	public void setup() throws Exception {
-		invoiceRepository.save(createInvoice("12345abcde", "name1", "desc1", true));
-		invoiceRepository.save(createInvoice("67890fgij", "name2", "desc2", false));
-		invoiceRepository.save(createInvoice("abcde12345", "name3", "desc3", false));
+		invoiceRepository.save(createInvoice("1234567890abcde", "name1", "desc1", true));
+		invoiceRepository.save(createInvoice("1234567890fgij", "name2", "desc2", false));
+		invoiceRepository.save(createInvoice("abcde1234567890", "name3", "desc3", false));
 		// +1 invoice in import.sql
 		
 		mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
@@ -55,23 +55,23 @@ public class InvoiceRestControllerIntegrationTest {
 	
 	@Test
 	public void testIsInvoicePaidTrue() throws Exception {
-		mockMvc.perform(get("/invoices/12345abcde/ispaid"))
+		mockMvc.perform(get("/invoices/1234567890abcde/ispaid"))
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$", Matchers.is(true)));
 	}
 	
 	@Test
 	public void testIsInvoicePaidFalse() throws Exception {
-		mockMvc.perform(get("/invoices/67890fgij/ispaid"))
+		mockMvc.perform(get("/invoices/1234567890fgij/ispaid"))
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$", Matchers.is(false)));
 	}
 	
 	@Test
 	public void testGetInvoiceById() throws Exception {
-		mockMvc.perform(get("/invoices/abcde12345"))
+		mockMvc.perform(get("/invoices/abcde1234567890"))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.id", Matchers.is("abcde12345")))
+			.andExpect(jsonPath("$.id", Matchers.is("abcde1234567890")))
 			.andExpect(jsonPath("$.name", Matchers.is("name3")))
 			.andExpect(jsonPath("$.description", Matchers.is("desc3")))
 			.andExpect(jsonPath("$.paid", Matchers.is(false)));

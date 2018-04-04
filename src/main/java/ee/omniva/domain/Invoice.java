@@ -5,18 +5,21 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Check;
+
 @Entity
 @Table(name="INVOICES")
+@Check(constraints="length(ID) >= 10")
 public class Invoice {
 	
 	@Id
-	@Column(name="ID")
+	@Column(name="ID", length=25)
 	private String id;
 
-	@Column(name="NAME")
+	@Column(name="NAME", length=100)
 	private String name;
 
-	@Column(name="DESCRIPTION")
+	@Column(name="DESCRIPTION", length=1000)
 	private String description;
 
 	@Column(name="PAID")
